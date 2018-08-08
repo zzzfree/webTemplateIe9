@@ -1,0 +1,14 @@
+<script src='lib/jquery/jquery-1.8.3.min.js'></script>
+
+<button onclick='go()'>go</button>
+
+<div id='cc'></div>
+
+<script>
+	function go() { 
+		$('#cc').load( 'modules/m.html', function(){
+			$(this).append($('<style/>').load('modules/m.css')) ;
+			$.getScript("modules/m.js");
+		} );
+	} 
+</script>

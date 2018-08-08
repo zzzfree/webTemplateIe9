@@ -1,0 +1,22 @@
+{
+  "name": "webtemplateie9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzzfree/webTemplateIe9.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzzfree/webTemplateIe9/issues"
+  },
+  "homepage": "https://github.com/zzzfree/webTemplateIe9#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
