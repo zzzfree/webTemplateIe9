@@ -1,0 +1,50 @@
+ 
+<div id="tree"></div>
+
+ <script>
+   
+
+var tree = [
+  {
+    text: "Parent 1",
+    nodes: [
+      {
+        text: "Child 1",
+        nodes: [
+          {
+            text: "Grandchild 1"
+          },
+          {
+            text: "Grandchild 2"
+          }
+        ]
+      },
+      {
+        text: "Child 2"
+      }
+    ]
+  },
+  {
+    text: "Parent 2"
+  },
+  {
+    text: "Parent 3"
+  },
+  {
+    text: "Parent 4"
+  },
+  {
+    text: "Parent 5"
+  }
+];
+
+
+
+
+   $('#tree').treeview({
+      data : tree,// 赋值
+      highlightSelected : true,// 选中项不高亮，避免和上述制定的颜色变化规则冲突
+      multiSelect : true,// 不允许多选，因为我们要通过check框来控制
+      showCheckbox : true,// 展示checkbox
+    });
+ </script>

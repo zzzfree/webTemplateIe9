@@ -5,6 +5,14 @@
   <title>Web管理平台</title>
 
 
+<link rel="stylesheet" href="css/main.css" type="text/css"/>
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="lib/SlickGrid/slick.grid.css" type="text/css"/>
+<link rel="stylesheet" href="lib/SlickGrid/slick-default-theme.css" type="text/css"/>
+
+<script type="text/javascript" src="lib/bootstrap-treeview/bootstrap-treeview.min.css"></script>
+
+<link href="lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
 </head>
 <body>
@@ -13,21 +21,66 @@
 <h1>Web管理平台</h1>
 
 
-<script src='lib/jquery/jquery-1.8.3.min.js'></script>
 
-<button onclick='loadModule("#cc","m")'>loadModule M</button>
-<button onclick='loadModule("#cc","o")'>loadModule O</button>
+<script src='lib/SlickGrid/lib/jquery-1.11.2.min.js'></script>
+<script src="lib/SlickGrid/lib/jquery.event.drag-2.3.0.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/lodash/lodash.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/services/user.js"></script>
 
-<div id='cc'></div>
+<script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="lib/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+
+<script type="text/javascript" src="lib/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="lib/vakata-jstree/dist/themes/default/style.min.css" /> 
+
+
+<button onclick='msb.loadModule("#cc","m")'>loadModule M</button>
+<button onclick='msb.loadModule("#cc","o")'>loadModule O</button>
+<button onclick='msb.loadModule("#cc","grid")'>loadModule Grid</button>
+<button onclick='msb.loadModule("#cc","datepicker")'>datepicker</button>
+<button onclick='msb.loadModule("#cc","bootstrap")'>bootstrap</button>
+<button onclick='msb.loadModule("#cc","jstree")'>jstree</button>
+<button onclick='msb.loadModule("#cc","bootstrap-treeview")'>bootstrap-treeview</button>
+
+<div id='cc'>
+	
+	<button role='/mpage/#add:disable' class='role'> /mpage/#add:disable  </button>
+	<button role='/mpage/#edit' class='role'> /mpage/#edit </button>
+
+</div>
 
 <script>
-	function loadModule(t, m) { 
-		$(t).load( 'modules/'+ m + '.html', function(){
-			$(this).append($('<style/>').load('modules/'+ m + '.css')) ;
-			$.getScript('modules/'+ m + '.js');
-		} );
-	} 
-</script>
+
+	user.login();
+
+	msb.check_roles('#cc');
+
+	var ret = _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 });
+	console.log(ret.a);
+</script> 
+
+
+
+
+
+
+
+<script src='lib/SlickGrid/slick.core.js'></script>
+<script src='lib/SlickGrid/slick.grid.js'></script>  
+<script src='lib/vakata-jstree/dist/jstree.min.js'></script>   
+
+
+
+
+
+
 
 
 </body>
