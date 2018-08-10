@@ -17,15 +17,87 @@
 </head>
 <body>
 
+<div id="header">
+	<div id="logo">logo</div>
+	<div id="title">微服务管理平台</div>
+	<div class="searchbox"> <input id="search"></input> </div>
+	<div id="username"> Username </div>
+	<div class="logout"> <i class='icon-off'> </i> </div>
+</div>
+	
+<div id="container" class='row'>
+	<div id="nav" class='span4'>
+		<div class="accordion" id="accordion2">
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+		        网关管理
+		      </a>
+		    </div>
+		    <div id="collapseOne" class="accordion-body collapse in">
+		      <div class="accordion-inner" onclick='msb.loadModule("#main","gateway/flow")'>
+		        流控管理
+		      </div>
+		      <div class="accordion-inner" onclick='msb.loadModule("#main","gateway/route")'>
+		        动态路由
+		      </div>
+		      <div class="accordion-inner">
+		        熔断管理
+		      </div>
+		    </div> 
+		  </div>
 
-<h1>Web管理平台</h1>
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		        API 管理
+		      </a>
+		    </div>
+		    <div id="collapseTwo" class="accordion-body collapse">
+		      <div class="accordion-inner">
+		        我的应用
+		      </div>
+		    </div>
+		  </div>
+
+
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSystem">
+		        系统管理
+		      </a>
+		    </div>
+		    <div id="collapseSystem" class="accordion-body collapse">
+		      <div class="accordion-inner" onclick='msb.loadModule("#main","system/user")'>
+		        账号管理
+		      </div>
+		    </div>
+		  </div>
+
+		</div>		
+	</div> 
+
+
+	<!-- END #nav -->
+
+
+	
+	<div id="main" class='span8'>
+		Main
+	</div>
+	<!-- END #main -->
+</div>
+
+ 
 
 
 
 <script src='lib/SlickGrid/lib/jquery-1.11.2.min.js'></script>
 <script src="lib/SlickGrid/lib/jquery.event.drag-2.3.0.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/mustache/mustache.min.js"></script>
 <script src="lib/lodash/lodash.min.js"></script>
+<script src="js/env.js"></script>
 <script src="js/main.js"></script>
 <script src="js/services/user.js"></script>
 
