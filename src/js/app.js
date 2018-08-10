@@ -1,8 +1,11 @@
-var msb = {
+import css from '../scss/app.css';
+var service = require('./services/index'); 
+
+window.msb = {
 	check_roles: function (t) {
 		$('.role', $(t) ).each( function(i, v){ 
 			var r = $(v).attr('role'); 
-			if( _.contains( user.roles, r) ){ 
+			if( _.contains( service.user.roles, r) ){ 
 				$(v).show();
 			}
 			else if( r.indexOf('disable') >=0 ){
@@ -10,9 +13,9 @@ var msb = {
 			}
 			$(v).removeAttr('role');
 		});
-	}, 
+	},  
 
-	loadModule: function (t, m) {  
+	loadModule: function (t,  m) {  
 		var self = this;
 		$(t).load( 'modules/'+ m + '.html', function(){
 			self.check_roles(t);
@@ -22,7 +25,7 @@ var msb = {
 	} ,
 
 	component: function (id, cmp, data, cb) { 
-		$.get('modules/components/' + cmp + '.html', function (rsp) { 
+		$.get('modules/components/' + cmp + '.html',  function (rsp) { 
 			data = {
 				html: rsp,
 				data: data
@@ -60,7 +63,7 @@ var msb = {
 }; // msb
 
 
-(function ($) {
+(function ($) {   
     $.urlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);

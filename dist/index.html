@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web管理平台</title>
+
+ 
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="lib/SlickGrid/slick.grid.css" type="text/css"/>
+<link rel="stylesheet" href="lib/SlickGrid/slick-default-theme.css" type="text/css"/>
+
+<script type="text/javascript" src="lib/bootstrap-treeview/bootstrap-treeview.min.css"></script>
+
+<link href="lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+
+<div id="header">
+	<div id="logo">logo</div>
+	<div id="title">微服务管理平台</div>
+	<div class="searchbox"> <input id="search"></input> </div>
+	<div id="username"> Username </div>
+	<div class="logout"> <i class='icon-off'> </i> </div>
+</div>
+	
+<div id="container" class='row'>
+	<div id="nav" class='span4'>
+		<div class="accordion" id="accordion2">
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+		        网关管理
+		      </a>
+		    </div>
+		    <div id="collapseOne" class="accordion-body collapse in">
+		      <div class="accordion-inner" onclick='msb.loadModule("#main","gateway/flow")'>
+		        流控管理
+		      </div>
+		      <div class="accordion-inner" onclick='msb.loadModule("#main","gateway/route")'>
+		        动态路由
+		      </div>
+		      <div class="accordion-inner">
+		        熔断管理
+		      </div>
+		    </div> 
+		  </div>
+
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		        API 管理
+		      </a>
+		    </div>
+		    <div id="collapseTwo" class="accordion-body collapse">
+		      <div class="accordion-inner">
+		        我的应用
+		      </div>
+		    </div>
+		  </div>
+
+
+		  <div class="accordion-group">
+		    <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSystem">
+		        系统管理
+		      </a>
+		    </div>
+		    <div id="collapseSystem" class="accordion-body collapse">
+		      <div class="accordion-inner" onclick='msb.loadModule("#main","system/user")'>
+		        账号管理
+		      </div>
+		    </div>
+		  </div>
+
+		</div>		
+	</div> 
+
+
+	<!-- END #nav -->
+
+
+	
+	<div id="main" class='span8'>
+		Main
+	</div>
+	<!-- END #main -->
+</div>
+
+ 
+
+
+
+<script src='lib/SlickGrid/lib/jquery-1.11.2.min.js'></script>
+<script src="lib/SlickGrid/lib/jquery.event.drag-2.3.0.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/mustache/mustache.min.js"></script>
+<script src="lib/lodash/lodash.min.js"></script>
+<script src="js/env.js"></script>
+<script src="js/bundle.js"></script>
+
+<script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="lib/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+
+<script type="text/javascript" src="lib/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="lib/vakata-jstree/dist/themes/default/style.min.css" /> 
+
+
+<button onclick='msb.loadModule("#cc","m")'>loadModule M</button>
+<button onclick='msb.loadModule("#cc","o")'>loadModule O</button>
+<button onclick='msb.loadModule("#cc","grid")'>loadModule Grid</button>
+<button onclick='msb.loadModule("#cc","datepicker")'>datepicker</button>
+<button onclick='msb.loadModule("#cc","bootstrap")'>bootstrap</button>
+<button onclick='msb.loadModule("#cc","jstree")'>jstree</button>
+<button onclick='msb.loadModule("#cc","bootstrap-treeview")'>bootstrap-treeview</button>
+
+<div id='cc'>
+	
+	<button role='/mpage/#add:disable' class='role'> /mpage/#add:disable  </button>
+	<button role='/mpage/#edit' class='role'> /mpage/#edit </button>
+
+</div>
+
+<script>
+
+	service.user.login();
+
+	msb.check_roles('#cc');
+
+	var ret = _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 });
+	console.log(ret.a);
+</script> 
+
+
+
+
+
+
+
+<script src='lib/SlickGrid/slick.core.js'></script>
+<script src='lib/SlickGrid/slick.grid.js'></script>  
+<script src='lib/vakata-jstree/dist/jstree.min.js'></script>   
+
+
+
+
+
+
+
+
+</body>
+</html>

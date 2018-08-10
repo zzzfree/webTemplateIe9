@@ -23,3 +23,5 @@ var user = {
 		
 	},
 }// user
+
+module.exports = user;

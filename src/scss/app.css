@@ -1,5 +1,10 @@
+@charset "utf-8";
+$base-color: transparent;
+body{  background: $base-color;}
+ 
+
 .role{
-	display: none;
+	display: none; 
 }
 
 #header{
