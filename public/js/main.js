@@ -27,8 +27,7 @@ var msb = {
 				html: rsp,
 				data: data
 			};
-			$.getScript('modules/components/' + cmp + '.js', function (rsp) {  
-				debugger;
+			$.getScript('modules/components/' + cmp + '.js', function (rsp) {   
 				o = new __component__();
 				o.init(id, data, cb);
 				cb && cb(o);
