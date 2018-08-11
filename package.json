@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/zzzfree/webTemplateIe9#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^1.0.0",
     "express": "^4.16.3",
     "node-sass": "^4.9.3",

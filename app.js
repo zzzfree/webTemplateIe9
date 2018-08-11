@@ -17,6 +17,20 @@ app.use(webpackDevMiddleware(compiler,{
 
 app.use(express.static(path.join(__dirname, 'dist')))
 
-app.listen(8080, () => {
-  console.log(`App listening at port 8080`)
+app.get('/api/*', function (req, rsp) {
+    rsp.status( req.query.status || 200 );
+    if( req.query.delay ){
+        setTimeout( function(){
+            rsp.send( req.query.rsp || ( req.method + ' success.' ) );
+        }, req.query.delay );
+    }else{
+        rsp.send( req.query.rsp || ( req.method + ' success.' ) ); 
+    }
+})
+
+var server = app.listen(8080, () => {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('app listening at http://%s:%s', host, port);
 })
