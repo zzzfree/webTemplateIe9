@@ -13,7 +13,7 @@ window.msb = {
 			else if( r.indexOf('disable') >=0 ){
 				$(v).show().attr('disabled', true);
 			}
-			$(v).removeAttr('role');
+			$(v).removeAttr('role') ;
 		});
 	},  
 
