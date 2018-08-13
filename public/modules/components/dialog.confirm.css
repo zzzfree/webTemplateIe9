@@ -1,0 +1,32 @@
+ __component__ = function(){
+
+return
+
+{
+ 	init: function (el, params, cb) {
+ 		self = this;
+ 		self.el = el;
+
+ 		tpl = params.html;
+ 		Mustache.parse(tpl);
+ 		id = 'dlg-confirm-' + _.uniqueId();
+ 		self.id = id;
+ 		params.data.id = id;
+ 		$(el).html( Mustache.render(tpl, params.data ) ); 
+
+ 		$('.btn-primary', el).click(function () { 
+	  		self.confirm && self.confirm();
+	  	}); 
+	  	cb && cb(this);
+ 	}, 
+
+ 	hide: function () {
+ 		$( '#' + this.id ).modal('hide');	
+ 	}, 
+
+ 	show: function () {
+ 		$( '#' + this.id ).modal('show');	
+ 	}
+ };
+
+};

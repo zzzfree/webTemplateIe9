@@ -1,0 +1,77 @@
+<ul class="breadcrumb">
+  <li> 系统管理  <span class="divider">/</span></li>
+  <li><a  class="active">用户管理</a>  </li> 
+</ul>
+
+<div id="dg" style='width:100%;height:300px'></div> 
+ 
+<!-- Modal -->
+<div class="dialogs"></div> 
+
+
+<script> 
+  
+  dlgconfirm = null;
+  msb.component('.dialogs', 'dialog.confirm', {id: 'dlg-confirms', title: "Toms", text: '是否停用s'}, function (dlg) { 
+  	dlgconfirm = dlg; 
+  });
+  
+  unlockconfirm = null;
+  msb.component('.dialogs', 'dialog.confirm', {id: 'dlg-confirmses', title: "提示", text: '是否解锁'}, function (dlg) { 
+  	unlockconfirm = dlg; 
+  });
+
+  //$('#ttt').html( msb.template('tpl', {title: "Jack", text: '是否停用'} ) );
+
+  var grid;
+  var columns = [
+    {id: "name", name: "姓名", field: "name"},
+    {id: "org", name: "组织", field: "org"} ,
+    {id: "action", name: "操作", formatter: actionFormatter  } 
+  ];
+
+  var options = {
+    enableCellNavigation: true,
+    enableColumnReorder: false
+  };
+
+  $(function () {
+    var data = getData(); 
+    grid = msb.grid("#dg", data, columns, options);
+  })
+
+  function getData() {
+  	return [
+  		{id: 0, name: 'Jack', org: '组织1'},
+  		{id: 1, name: 'Jack1', org: "组织1"},
+  		{id: 2, name: 'Jack2', org: '组织1'},
+  		{id: 3, name: 'Jack3', org: '组织1'},
+  		{id: 4, name: 'Jack4', org: '组织1'},
+  		{id: 5, name: 'Jack5', org: '组织1'}
+  	];
+  }
+
+  function actionFormatter(row, cell, value, columnDef, dataContext){
+  	 var ret =  '';
+  	 ret += '<span class="  btn-link " onclick=userenable("'+ dataContext.id +'") > 启用 </span> ';
+  	 ret += '<span class="  btn-link " onclick=userunlock("'+ dataContext.id +'") > 解锁 </span>';
+  	 return ret;
+  } 
+
+  function userenable(id) {  
+  	dlgconfirm.confirm= function () {
+  		alert(id);
+  		dlgconfirm.hide();
+  	};
+  	dlgconfirm.show();
+  }
+
+  function userunlock(id) { 
+  	unlockconfirm.confirm= function () {
+  		alert(id);
+  		unlockconfirm.hide();
+  	};
+  	unlockconfirm.show();
+  }
+
+</script>
